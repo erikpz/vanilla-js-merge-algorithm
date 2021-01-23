@@ -1,0 +1,33 @@
+@use 'colors.scss';
+
+section.animation-zone {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    div.array-container {
+        display: inline-flex;
+        flex: 0 0 auto;
+        position: absolute;
+
+        div.array-element {
+            height: 40px;
+            width: 40px;
+            margin: 0 5px 0 1px;
+            background: colors.$bondi-blue;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+                0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+                0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12),
+                0px 5px 0 #027fb1;
+            p {
+                font-size: 14px;
+                line-height: 14px;
+            }
+        }
+    }
+}
