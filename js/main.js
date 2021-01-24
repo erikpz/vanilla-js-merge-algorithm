@@ -3,23 +3,15 @@ window.addEventListener('load', () => {
     let tMargin = 30;
     let time = 700;
     let ordenado = false;
-    //let defaultArray = [1, 7, -1, 5, 2, 6, 9, 11, 11];
-    let defaultArray = [1, 7, -1];
+    let defaultArray = [1, 7, -1, 5, 2, 6, 9, 11, 11];
+    //let defaultArray = [1, 7, -1];
 
 
     const getArray = () => showArray(defaultArray);
 
     const deleteAll = () => {
-        let container = getElemClass('.animation-zone');
-        container.innerHTML = ''
-        /* if (container) {
-            console.log(container)
-            if (container.hasChildNodes()) {
-                while (container.childNodes.lenght >= 1) {
-                    container.removeChild(container.firstChild);
-                }
-            }
-        } */
+        let container = getElemClass('.animation-container');
+        container.innerHTML = '';
     };
 
     const showArray = (arr) => {
@@ -34,7 +26,7 @@ window.addEventListener('load', () => {
             element.appendChild(value);
             arrayContainer.appendChild(element);
         }
-        let animZone = getElemClass('.animation-zone');
+        let animZone = getElemClass('.animation-container');
         animZone.appendChild(arrayContainer);
         const toCenter = () => {
             arrayContainer.style.left = (animZone.clientWidth / 2) - (arrayContainer.clientWidth / 2) + 'px';
@@ -127,7 +119,7 @@ window.addEventListener('load', () => {
         let half1 = createSubArray(arr, 0, middle);
         let half2 = createSubArray(arr, middle, arr.childNodes.length);
 
-        let animZone = getElemClass('.animation-zone');
+        let animZone = getElemClass('.animation-container');
 
         animZone.appendChild(half1);
         half1.style.left = `${arr.offsetLeft - lMargin}px`;
@@ -150,39 +142,23 @@ window.addEventListener('load', () => {
     const unsort = (arr) => {
         return showArray(arr)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
-
     const modal = createElem('div');
-    const title = createElem('h1')
+    const title = createElem('h2')
+    const modalText = createElem('h4')
     const btnMod = createElem('button');
     const arrInput = createElem('input');
-    title.innerHTML = 'Arreglo!!!';
-    arrInput.type = 'text'
+    title.innerHTML = 'Inserta Arreglo';
+    modalText.innerHTML = 'Ingresa un arreglo con el siguiente formato: [1,2,3]'
     arrInput.id = 'arrInput'
+    arrInput.type = 'text'
     btnMod.id = 'btnMod'
     btnMod.innerHTML = 'Guardar'
     modal.appendChild(title);
+    modal.appendChild(modalText);
     modal.appendChild(arrInput);
     modal.appendChild(btnMod)
+    modal.classList.add = 'modal';
 
     const btnSet = getElem('set')
     btnSet.addEventListener('click', () => {
@@ -195,7 +171,7 @@ window.addEventListener('load', () => {
     btnMod.addEventListener('click', () => {
         ordenado = false
         let entrada = convertInput(arrInput.value);
-        let zone = getElemClass('.animation-zone');
+        let zone = getElemClass('.animation-container');
         let newArr = showArray(entrada)
         zone.innerHTML = ''
         zone.appendChild(newArr)
@@ -209,7 +185,7 @@ window.addEventListener('load', () => {
         } else {
             swal({
                 icon: 'error',
-                title: 'Error!!!',
+                title: '¡Error!',
                 text: 'Entrada inválida. Ingresa un arreglo con el siguiente formato: [1,2,3,4,].'
             }).then(() => {
                 swal({
@@ -225,7 +201,7 @@ window.addEventListener('load', () => {
         if (ordenado) {
             swal({
                 icon: 'info',
-                title: 'ORDENADO',
+                title: '¡ORDENADO!',
                 text: 'El arreglo ya está ordenado.'
             })
             return;
@@ -245,12 +221,12 @@ window.addEventListener('load', () => {
         if (!ordenado) {
             swal({
                 icon: 'warning',
-                title: 'DESORDENADO!!!',
+                title: '¡DESORDENADO!',
                 text: 'El arreglo ya está desordenado.'
             })
             return;
         }
-        let sortedArray = getElemClass('.animation-zone').firstChild;
+        let sortedArray = getElemClass('.animation-container').firstChild;
         console.log(sortedArray.childNodes.length)
         let unsorted = [];
         for (let i = sortedArray.childNodes.length - 1; i >= 0; i--){
@@ -262,7 +238,7 @@ window.addEventListener('load', () => {
         ordenado = false
     })
 
-    if (getElemClass('.animation-zone').firstChild === null) {
-        getElemClass('.animation-zone').appendChild(showArray(defaultArray))
+    if (getElemClass('.animation-container').firstChild === null) {
+        getElemClass('.animation-container').appendChild(showArray(defaultArray))
     }
 });

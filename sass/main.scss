@@ -2,9 +2,9 @@
 @use 'fonts.scss';
 @use 'mixins.scss';
 @use 'header.scss';
-@use 'settings.scss';
 @use 'animation_container.scss';
 @use 'buttons.scss';
+@use 'modal.scss';
 
 *{
   font-family: 'quick';
@@ -27,7 +27,7 @@ main {
   div#settings {
     width: 300px;
   }
-  section.animation-zone {
+  section.animation-container {
     div.array-container {
       div.array-element {
         width: 30px;

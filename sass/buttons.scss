@@ -1,34 +1,32 @@
 @use 'mixins.scss';
+@use 'colors.scss';
 
 section.buttons {
-    position: fixed;
-    bottom: 7%;
     @include mixins.center();
   
     div.wrapper {
       width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-auto-rows: minmax(50px, auto);
+      display: flex;
+      justify-content: space-evenly;
       text-align: center;
     }
   
     button {
       box-sizing: border-box;
       border: none;
-      width: 80%;
-      height: 100%;
-      border-radius: 10px;
+      width: 100%;
       font-size: 1.1rem;
       font-weight: bold;
-      color: 'lightgreen';
       cursor: pointer;
+      background: linear-gradient(45deg, #{colors.$regal-blue} 30%, #{colors.$bondi-blue} 90%);
+      border-radius: 15px;
+      box-shadow: 0 3px 5px 2px rgba(33, 203, 243, .3);
+      padding: 0 30px;
+      height: 45px;
+      margin-top: 20px;
+      color: white;
       @include mixins.scaleOnHover(1.05);
-      &#sort {
-        background: 'lightgreen';
-      }
-      &#unsort {
-        background: linear-gradient(to right, #b80000, #d41e1e);
-      }
     }
+    &:active, &:focus{outline: none;}
+    &:disabled, &[disabled]{background-color: lightcoral;}
   }

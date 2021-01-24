@@ -12,83 +12,19 @@ header h1 {
   font-size: 80px;
 }
 
-div#settings {
-  height: 100vh;
-  width: 400px;
-  left: -400px;
-  top: 0;
-  position: fixed;
-  transition: all 0.4s ease;
-  z-index: 5;
-  background: rgba(22, 22, 22, 0.95);
-  font-family: "Livvic", sans-serif;
-  text-align: center;
-  color: #fff;
-  display: block;
-}
-div#settings div#close-menu {
-  cursor: pointer;
-  margin: 15px 0 15px 0;
-  color: red;
-}
-div#settings div#close-menu {
-  transition: all 0.2s ease-in-out;
-}
-div#settings div#close-menu:hover {
-  transform: scale(1.2);
-}
-div#settings h2 {
-  width: 40%;
-  margin: 0 auto;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #fff;
-  padding-bottom: 7px;
-}
-div#settings input {
-  box-sizing: border-box;
-  width: 90%;
-  margin: 0 auto;
-}
-div#settings input#timeout {
-  width: 40%;
-}
-div#settings div.errors, div#settings div.success {
-  width: 90%;
-  margin: 0 auto;
-  height: 40px;
-  margin-top: 50px;
-}
-div#settings button {
-  cursor: pointer;
-  box-sizing: border-box;
-  border: 0;
-  height: 32px;
-  width: 50%;
-  margin: 10px auto 0 auto;
-  background: "lightgreen";
-  border-radius: 5px;
-  color: #fff;
-}
-div#settings button {
-  transition: all 0.2s ease-in-out;
-}
-div#settings button:hover {
-  transform: scale(1.1);
-}
-
-section.animation-zone {
+section.animation-container {
   position: relative;
   height: 60vh;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
 }
-section.animation-zone div.array-container {
+section.animation-container div.array-container {
   display: inline-flex;
   flex: 0 0 auto;
   position: absolute;
 }
-section.animation-zone div.array-container div.array-element {
+section.animation-container div.array-container div.array-element {
   height: 40px;
   width: 40px;
   margin: 0 5px 0 1px;
@@ -98,34 +34,35 @@ section.animation-zone div.array-container div.array-element {
   border-radius: 10px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12), 0px 5px 0 #027fb1;
 }
-section.animation-zone div.array-container div.array-element p {
+section.animation-container div.array-container div.array-element p {
   font-size: 14px;
   line-height: 14px;
 }
 
 section.buttons {
-  position: fixed;
-  bottom: 7%;
   width: 90%;
   margin: 0 auto;
 }
 section.buttons div.wrapper {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: minmax(50px, auto);
+  display: flex;
+  justify-content: space-evenly;
   text-align: center;
 }
 section.buttons button {
   box-sizing: border-box;
   border: none;
-  width: 80%;
-  height: 100%;
-  border-radius: 10px;
+  width: 100%;
   font-size: 1.1rem;
   font-weight: bold;
-  color: "lightgreen";
   cursor: pointer;
+  background: linear-gradient(45deg, #02457A 30%, #018ABE 90%);
+  border-radius: 15px;
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
+  padding: 0 30px;
+  height: 45px;
+  margin-top: 20px;
+  color: white;
 }
 section.buttons button {
   transition: all 0.2s ease-in-out;
@@ -133,11 +70,56 @@ section.buttons button {
 section.buttons button:hover {
   transform: scale(1.05);
 }
-section.buttons button#sort {
-  background: "lightgreen";
+section.buttons:active, section.buttons:focus {
+  outline: none;
 }
-section.buttons button#unsort {
-  background: linear-gradient(to right, #b80000, #d41e1e);
+section.buttons:disabled, section.buttons[disabled] {
+  background-color: lightcoral;
+}
+
+.swal-content h2 {
+  font-size: 2rem;
+  color: #001B48;
+}
+.swal-content h4 {
+  color: #212121;
+}
+.swal-content input[type=text] {
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid #616161;
+  display: block;
+  width: 70%;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+}
+.swal-content #btnMod {
+  background: linear-gradient(45deg, #02457A 30%, #018ABE 90%);
+  border: 0;
+  border-radius: 15px;
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
+  padding: 0 30px;
+  height: 45px;
+  margin-top: 20px;
+  color: white;
+  font-size: 1rem;
+}
+.swal-content #btnMod:active, .swal-content #btnMod:focus {
+  outline: none;
+}
+
+.swal-overlay {
+  backdrop-filter: blur(3px);
+}
+
+.swal-modal {
+  border-radius: 15px;
+}
+
+.swal-text {
+  text-align: center;
+  color: #212121;
 }
 
 * {
@@ -163,11 +145,11 @@ main {
     width: 300px;
   }
 
-  section.animation-zone div.array-container div.array-element {
+  section.animation-container div.array-container div.array-element {
     width: 30px;
     height: 30px;
   }
-  section.animation-zone div.array-container div.array-element p {
+  section.animation-container div.array-container div.array-element p {
     font-size: 12px;
     line-height: 8px;
   }
