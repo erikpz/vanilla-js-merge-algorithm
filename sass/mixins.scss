@@ -1,0 +1,13 @@
+@mixin center() {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@mixin scaleOnHover($scale) {
+    & {
+        transition: all 0.2s ease-in-out;
+    }
+    &:hover {
+        transform: scale($scale);
+    }
+}

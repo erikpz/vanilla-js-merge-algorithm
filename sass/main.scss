@@ -1,0 +1,43 @@
+@use 'colors.scss';
+@use 'fonts.scss';
+@use 'mixins.scss';
+@use 'header.scss';
+@use 'animation_container.scss';
+@use 'buttons.scss';
+@use 'modal.scss';
+
+*{
+  font-family: 'quick';
+}
+
+body {
+  background: colors.$botticelli;
+}
+
+main {
+  position: relative;
+  @include mixins.center();
+}
+
+
+@media (max-width: 570px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+  div#settings {
+    width: 300px;
+  }
+  section.animation-container {
+    div.array-container {
+      div.array-element {
+        width: 30px;
+        height: 30px;
+        p {
+          font-size: 12px;
+          line-height: 8px;
+        }
+      }
+    }
+  }
+
+}

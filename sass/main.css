@@ -1,0 +1,158 @@
+/* 023a68 */
+@font-face {
+  font-family: "quick";
+  src: url("../fonts/Quicksand-Regular.ttf");
+}
+header {
+  color: #02457A;
+  margin-bottom: 20px;
+}
+header h1 {
+  text-align: center;
+  font-size: 80px;
+}
+
+section.animation-container {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+section.animation-container div.array-container {
+  display: inline-flex;
+  flex: 0 0 auto;
+  position: absolute;
+}
+section.animation-container div.array-container div.array-element {
+  height: 40px;
+  width: 40px;
+  margin: 0 5px 0 1px;
+  background: #018ABE;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12), 0px 5px 0 #027fb1;
+}
+section.animation-container div.array-container div.array-element p {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+section.buttons {
+  width: 90%;
+  margin: 0 auto;
+}
+section.buttons div.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+section.buttons button {
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(45deg, #02457A 30%, #018ABE 90%);
+  border-radius: 15px;
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
+  padding: 0 30px;
+  height: 45px;
+  margin-top: 20px;
+  color: white;
+}
+section.buttons button {
+  transition: all 0.2s ease-in-out;
+}
+section.buttons button:hover {
+  transform: scale(1.05);
+}
+section.buttons:active, section.buttons:focus {
+  outline: none;
+}
+section.buttons:disabled, section.buttons[disabled] {
+  background-color: lightcoral;
+}
+
+.swal-content h2 {
+  font-size: 2rem;
+  color: #001B48;
+}
+.swal-content h4 {
+  color: #212121;
+}
+.swal-content input[type=text] {
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid #616161;
+  display: block;
+  width: 70%;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+}
+.swal-content #btnMod {
+  background: linear-gradient(45deg, #02457A 30%, #018ABE 90%);
+  border: 0;
+  border-radius: 15px;
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
+  padding: 0 30px;
+  height: 45px;
+  margin-top: 20px;
+  color: white;
+  font-size: 1rem;
+}
+.swal-content #btnMod:active, .swal-content #btnMod:focus {
+  outline: none;
+}
+
+.swal-overlay {
+  backdrop-filter: blur(3px);
+}
+
+.swal-modal {
+  border-radius: 15px;
+}
+
+.swal-text {
+  text-align: center;
+  color: #212121;
+}
+
+* {
+  font-family: "quick";
+}
+
+body {
+  background: #D6EBEE;
+}
+
+main {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (max-width: 570px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  div#settings {
+    width: 300px;
+  }
+
+  section.animation-container div.array-container div.array-element {
+    width: 30px;
+    height: 30px;
+  }
+  section.animation-container div.array-container div.array-element p {
+    font-size: 12px;
+    line-height: 8px;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
