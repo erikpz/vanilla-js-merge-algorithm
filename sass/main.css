@@ -9,7 +9,8 @@ header {
 }
 header h1 {
   text-align: center;
-  font-size: 80px;
+  font-size: 65px;
+  margin-top: 20px;
 }
 
 section.animation-container {
@@ -53,7 +54,7 @@ section.buttons button {
   box-sizing: border-box;
   border: none;
   width: 100%;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: bold;
   cursor: pointer;
   background: linear-gradient(45deg, #02457A 30%, #018ABE 90%);
@@ -70,13 +71,22 @@ section.buttons button {
 section.buttons button:hover {
   transform: scale(1.05);
 }
-section.buttons:active, section.buttons:focus {
-  outline: none;
+section.buttons button#sort:disabled, section.buttons button#set:disabled {
+  background: #212121;
+  opacity: 0.5;
 }
-section.buttons:disabled, section.buttons[disabled] {
-  background-color: lightcoral;
+section.buttons button#sort:disabled:hover, section.buttons button#set:disabled:hover {
+  transform: scale(1);
 }
 
+@media (max-width: 600px) {
+  section.buttons div.wrapper {
+    margin: auto;
+    width: 70%;
+    flex-direction: column;
+  }
+}
+/*   .disabled{background-color: #515151;} */
 .swal-content h2 {
   font-size: 2rem;
   color: #001B48;
@@ -136,15 +146,14 @@ main {
   margin: 0 auto;
 }
 
+#exp {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  font-size: 1.2rem;
+}
+
 @media (max-width: 570px) {
-  h1 {
-    font-size: 1.2rem;
-  }
-
-  div#settings {
-    width: 300px;
-  }
-
   section.animation-container div.array-container div.array-element {
     width: 30px;
     height: 30px;
@@ -152,6 +161,10 @@ main {
   section.animation-container div.array-container div.array-element p {
     font-size: 12px;
     line-height: 8px;
+  }
+
+  #exp {
+    width: 90%;
   }
 }
 

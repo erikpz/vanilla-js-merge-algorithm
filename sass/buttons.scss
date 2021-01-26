@@ -15,7 +15,7 @@ section.buttons {
       box-sizing: border-box;
       border: none;
       width: 100%;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: bold;
       cursor: pointer;
       background: linear-gradient(45deg, #{colors.$regal-blue} 30%, #{colors.$bondi-blue} 90%);
@@ -26,7 +26,23 @@ section.buttons {
       margin-top: 20px;
       color: white;
       @include mixins.scaleOnHover(1.05);
+      &#sort:disabled,&#set:disabled{
+        background: #212121;
+        opacity: 0.5;
+        &:hover{
+          transform: scale(1);
+        }
+      }
     }
-    &:active, &:focus{outline: none;}
-    &:disabled, &[disabled]{background-color: lightcoral;}
   }
+
+  @media (max-width: 600px) {
+    section.buttons{
+      div.wrapper{
+        margin: auto;
+        width: 70%;
+        flex-direction: column;
+      }
+    }
+  }
+/*   .disabled{background-color: #515151;} */

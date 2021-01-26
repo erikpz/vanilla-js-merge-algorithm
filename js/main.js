@@ -1,11 +1,10 @@
 window.addEventListener('load', () => {
     let lMargin = 20;
     let tMargin = 30;
-    let time = 700;
+    let time = 1000;
     let ordenado = false;
-    let defaultArray = [1, 7, -1, 5, 2, 6, 9, 11, 11];
+    let defaultArray = [1, 7, -1, 5, 2, 6, 14, 3];
     //let defaultArray = [1, 7, -1];
-
 
     const getArray = () => showArray(defaultArray);
 
@@ -113,8 +112,10 @@ window.addEventListener('load', () => {
     }
 
     const sort = async (arr) => {
-        if (arr.childNodes.length <= 1)
+        const exp = getElem('exp');
+        if (arr.childNodes.length <= 1) {
             return;
+        }
         let middle = Math.floor(arr.childNodes.length / 2);
         let half1 = createSubArray(arr, 0, middle);
         let half2 = createSubArray(arr, middle, arr.childNodes.length);
@@ -125,14 +126,15 @@ window.addEventListener('load', () => {
         half1.style.left = `${arr.offsetLeft - lMargin}px`;
         half1.style.top = `${arr.offsetTop + arr.clientHeight + tMargin}px`;
 
-        await animateDivi(half1, '+');
 
+        exp.innerHTML = PASO2;
+        await animateDivi(half1, '+');
         animZone.appendChild(half2);
         half2.style.left = `${half1.offsetLeft + half1.clientWidth + lMargin * 2}px`;
         half2.style.top = `${half1.offsetTop}px`;
 
         await animateDivi(half2, '-');
-
+        exp.innerHTML = PASO3;
         await sort(half1);
         await sort(half2);
 
@@ -142,7 +144,8 @@ window.addEventListener('load', () => {
     const unsort = (arr) => {
         return showArray(arr)
     }
-    
+
+    const exp = getElem('exp');
     const modal = createElem('div');
     const title = createElem('h2')
     const modalText = createElem('h4')
@@ -183,6 +186,7 @@ window.addEventListener('load', () => {
                 text: 'Se ha guardado el arreglo.'
             })
         } else {
+            showArray(defaultArray)
             swal({
                 icon: 'error',
                 title: '¡Error!',
@@ -206,18 +210,33 @@ window.addEventListener('load', () => {
             })
             return;
         }
+        exp.innerHTML = PASO1;
         let array = getArray();
-        btnSort.disabled = true
-        btnSet.disabled = true
-        sort(array).then(() => {
-            ordenado = true;
-            btnSort.disabled = false
-            btnSet.disabled = false
-        })
+        btnSort.classList.add('disabled')
+        btnSet.classList.add('disabled')
+        btnSort.disabled = true;
+        btnSet.disabled = true;
+        setTimeout(() => {
+            sort(array).then(() => {
+                ordenado = true;
+                btnSort.disabled = false
+                btnSet.disabled = false
+            }).then(()=>{
+                exp.innerHTML = PASO4;
+                setTimeout(()=>exp.innerHTML='',3000)
+            }).then(()=>{
+                swal({
+                    icon: 'success',
+                    title: '¡ORDENADO!',
+                    timer: 1500
+                })
+            })
+        }, 2000)
     })
 
     const btn = getElem('unsort');
     btn.addEventListener('click', () => {
+        exp.innerHTML=''
         if (!ordenado) {
             swal({
                 icon: 'warning',
@@ -229,13 +248,19 @@ window.addEventListener('load', () => {
         let sortedArray = getElemClass('.animation-container').firstChild;
         console.log(sortedArray.childNodes.length)
         let unsorted = [];
-        for (let i = sortedArray.childNodes.length - 1; i >= 0; i--){
-            unsorted.push(sortedArray.childNodes[i].firstChild.innerHTML)
+        for (let i = sortedArray.childNodes.length - 1; i >= 0; i--) {
+            unsorted.push(sortedArray.childNodes[i].firstChild.innerHTML);
+            unsorted = unsorted.sort((a, b) => Math.random() - 0.5);
         }
         console.log(unsorted)
         defaultArray = unsorted
         unsort(unsorted)
         ordenado = false
+        swal({
+            icon: 'success',
+            title: '¡DESORDENADO!',
+            text: 'El arreglo se ha desordenado.'
+        })
     })
 
     if (getElemClass('.animation-container').firstChild === null) {

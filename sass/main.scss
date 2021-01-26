@@ -19,14 +19,15 @@ main {
   @include mixins.center();
 }
 
+#exp{
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  font-size: 1.2rem;
+}
+
 
 @media (max-width: 570px) {
-  h1 {
-    font-size: 1.2rem;
-  }
-  div#settings {
-    width: 300px;
-  }
   section.animation-container {
     div.array-container {
       div.array-element {
@@ -39,5 +40,8 @@ main {
       }
     }
   }
-
+  #exp{
+    width: 90%;
+  }
 }
+
