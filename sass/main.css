@@ -4,6 +4,7 @@
   src: url("../fonts/Quicksand-Regular.ttf");
 }
 header {
+  position: relative;
   color: #02457A;
   margin-bottom: 20px;
 }
@@ -79,7 +80,7 @@ section.buttons button#sort:disabled:hover, section.buttons button#set:disabled:
   transform: scale(1);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   section.buttons div.wrapper {
     margin: auto;
     width: 70%;
