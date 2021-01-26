@@ -1,0 +1,48 @@
+
+#simulacion {
+
+    top : 90%;
+    position: fixed;
+    display :block;
+    left: 40%;
+    width: 20%;
+
+}
+
+.introduccion_img {
+    height: 45vh;
+    float: left;
+    /* position: relative; */
+    clip-path: polygon(20% 0, 90% 0, 80% 100%, 10% 100%);
+    text-align-last: center;
+}
+
+.text-box--title {
+    /* height: 45vh; */
+    position: static;
+    left: 25%;
+    top: 18vh;
+    margin-top: 5%;
+}
+
+.texto--title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: .5rem;
+    
+  }
+
+.titulo {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: .5rem;
+    margin-top: 7%;
+  }
+
+  .text-box {
+    font-size: 1.2rem;
+  }
+
+  .center-elements {
+    text-align: center;
+  }

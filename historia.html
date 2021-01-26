@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="sass/main.css" />
+		<link rel="stylesheet" href="sass/historia.css" />
+		<title>Merge Sort: Historia</title>
+	</head>
+
+	<body>
+		<header>
+			<div class="header-container">
+				<div>
+					<h1>Merge Sort</h1>
+				</div>
+			</div>
+		</header>
+
+		<main>
+
+			<section class="introduccion">
+				<div class="text-box--title">
+					<p class="texto--title">
+						El ordenamiento por mezcla o Merge Sort es un algoritmo de ordenamiento basado en comparaciones, se implementa utilizando la técnica de divide y vencerás. En el peor de los casos la complejidad 	es O(nlogn). El algoritmo fue inventado por Jonhn Von Neumann en 1945.
+					</p>
+					</div>	
+					<img src="./img/numbers.jpg" class="introduccion_img"/>
+			
+			</section>
+
+			<section class="divide_conquer">
+				<h1 class="titulo">Divide y vencerás</h1>
+				<div class="text-box">
+					<p >
+						El paradigma de Divide y vencerás, esta basado en buscar la resolución recursiva de un problema dividiéndolo en 2 o mas subproblemas de igual tipo o similar, siempre y cuando estos no se solapen. El proceso continúa hasta que estos llegan a ser suficientemente sencillos como para obtener una solución directa. Finalmente, las soluciones obtenidas de cada uno de los subproblemas se combinan para dar una solución al problema original
+					</p>
+					<p>
+						Para que convenga aplicar la técnica de divide y vencerás debe cumplirse lo siguiente
+						<ol>
+							<li>Las operaciones descomponer y combinar deben ser bastante eficientes  </li>
+							<li>El numero de subproblemas generados sea pequeño </li>
+							<li>Los subproblemas sean aproximadamente del mismo tamaño y no se solapen entre si </li>
+						</ol>
+					</p>
+				</div>
+			</section>
+
+			<div class="">
+				<h1 class="titulo center-elements">Merge Sort</h1>
+				<div class="text-box">
+				<p>
+					Conceptualmente, el ordenamiento por mezcla funciona de la siguiente manera
+					<ol>
+						<li>Si la longitud de la lista es 0 o 1, entonces ya se encuentra ordenada</li>
+						<li>Dividir la lista desordenada en 2 sublistas de aproximadamente la mitad del tamaño</li>
+						<li>Ordenar cada sublista recursivamente aplicando el ordenamiento por mezcla</li>
+						<li>Mezclar las dos sublistas en una sola lista ordenada</li>
+					</ol>
+				</p>
+				<p>
+					Merge Sort incorpora dos ideas principales para mejorar su tiempo de ejecución.
+					<ol>
+						<li>Una lista pequeña necesitara menos pasos para ordenarse que una lista grande </li>
+						<li>Se necesitan menos pasos para construir una lista ordenada a partir de dos listas también ordenadas, que a partir de dos listas desordenadas</li>
+					</ol>
+				</p>
+				</div>
+			</div>
+
+
+			
+				<h1 class="titulo center-elements">Funcionamiento</h1>
+				<div class="text-box center-elements">
+					<p>
+						Se parte de tener un arreglo de tamaño n desordenado
+					</p>
+					<img src="./img/merge1.png" alt="Array desordenado" class="img-merge">
+						
+					<p>
+						En caso de que la longitud sea mayor a 1 se divide todo el arreglo en dos partes aproximadamente iguales 
+					</p>
+					<img src="./img/merge2.png" alt="Array desordenado">
+
+					<p>
+						Se dividen los subarreglos resultantes hasta que los arreglos sean de tamaño uno
+					</p>
+					<img src="./img/merge3.png" alt="Array desordenado">
+
+					<p>
+						Posteriormente se comparan los elementos de cada lista y se combinan de una manera ordenada en un solo arreglo.
+					</p>
+					<img src="./img/merge4.png" alt="Array desordenado">
+
+					<p>
+						Al tener los subarreglos acomodados únicamente se comparan los extremos de cada arreglo, ya que contienen los valores más pequeños.
+					</p>
+					<img src="./img/merge5.png" alt="Array desordenado">
+
+					<p>
+						Finalmente se combinan los subarrelglos ordenados en un solo arreglo, obteniendo el arreglo original acomodado.
+					</p>
+					<img src="./img/merge6.png" alt="Array desordenado" style="margin-bottom: 5rem;">
+
+				</div>
+			
+
+		</main>
+		<section class="buttons">
+			
+				<div><button id="simulacion" onclick="location.href = './index.html'" >Simulación</button></div>
+			
+		</section>
+
+	</body>
+</html>
